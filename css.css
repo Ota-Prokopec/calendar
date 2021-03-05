@@ -24,8 +24,13 @@ div.pole {
   width:calc(61.4vw / 5 - 4px);
   margin: 1px;
   padding: 1px;
+
+  overflow-y: auto;
   display: inline-grid;
   background: red;
+}
+div.pole:active {
+  transform: scale(1.4);
 }
 input {
   height: 14px;
