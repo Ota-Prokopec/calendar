@@ -20,19 +20,19 @@ function doCalendar(day, month) {
       dataInformace = false;
       for (const [key, value] of Object.entries(informace)) {
         if (key === "a" + parseInt(iMonth.value) + "a" + i + "a" + parseInt(iYear.value)) {
-             dataInformace = value.text;
+             dataInformace = value;
         }
       }
       let element;
       if (dataInformace !== false) {
-         element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}    ${dataInformace}`);
+  /*1*/       element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}`, Ota.createElementByTagName("div", {position:"relative"},`${dataInformace.text}           ${dataInformace.time}` )              );
       }
 
        else if (i === date.getDate() && iMonth.value == date.getMonth()+1 && iYear.value == date.getFullYear()) {
-         element = Ota.createElementByTagName("div", {class:"pole", background:"lightblue"}, `${days[day]}    ${i}    `);
+  /*2*/       element = Ota.createElementByTagName("div", {class:"pole", background:"lightblue"}, `${days[day]}    ${i}    `);
        }
       else {
-         element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i }`);
+  /*3 */      element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i }`);
       }
       element.setAttribute("pos", i);
       appendElement(array, element);

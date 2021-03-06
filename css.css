@@ -38,6 +38,10 @@ body {
   left:75px;
   transform: rotate(90deg)
 }
+.time {
+  position: relative;
+  width: auto;
+}
 .inputposition {
   position: absolute;
   display: none;
@@ -47,7 +51,8 @@ div.pole {
   width:calc(61.4vw / 5 - 4px);
   margin: 1px;
   padding: 1px;
-  overflow-y: auto;
+  overflow: auto;
+  /*overflow-y: auto;*/
   display: inline-grid;
   background: red;
 }
@@ -59,7 +64,7 @@ input {
   width: 200px;
 }
 #input {
-  position: absolute;
+  position: relative;
 }
 .pravo {
   height: 44px;

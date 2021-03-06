@@ -26,7 +26,8 @@ function daysInMonth(year, month) {
 
 
 
-//////////*  eventy  *////////////
+//////////*  eventy  */////////////*
+
 window.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
       sub();
@@ -46,12 +47,14 @@ for (let pos = 0; pos < click.length; pos ++) {
        iMonth.value = iMonth.value - 1;
        if (iMonth.value < 1) {
          iMonth.value = 12;
+         iYear.value = iYear.value - 1;
        }
      }
      else if (event.srcElement.id === "pravo") {
        iMonth.value = parseInt(iMonth.value)+1 ;
        if (iMonth.value > 12) {
          iMonth.value = 1;
+         iYear.value = parseInt(iYear.value) + 1;
        }
 
      }

@@ -2,6 +2,7 @@
 
 let text = "";
 const textinput = document.getElementById("input");
+const timeinput = document.getElementById("time");
 const informace = {
 
 
@@ -61,8 +62,8 @@ function clicks() {
     }
 }
 function add(day, text, thiselement) {
-      informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = {month:parseInt(iMonth.value), year:iYear.value, day:day, text:text};
-      //thiselement.innerText = thiselement.innerText + "            " +  text;
+      informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = {month:parseInt(iMonth.value), year:iYear.value, day:day, text:text, time:timeinput.value};
+      thiselement.innerText = thiselement.innerText + timeinput.value +"            " +  text;
 }
 function zobrazenitext(event) {
   //console.log(event.srcElement.getAttribute("pos"));
