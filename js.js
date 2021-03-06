@@ -25,6 +25,9 @@ function doCalendar(day, month) {
       if (dataInformace !== false) {
          element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}    ${dataInformace}`);
       }
+       else if (i === date.getDate()) {
+         element = Ota.createElementByTagName("div", {class:"pole", background:"lightblue"}, `${days[day]}    ${i}    `);
+       }
       else {
          element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i }`);
       }

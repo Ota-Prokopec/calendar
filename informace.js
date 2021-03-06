@@ -7,6 +7,7 @@ const informace = {
 
 
 };
+/*localStorage.setItem("informace", {});*/
 /*
 const informace = {
   a1:
@@ -20,8 +21,8 @@ const informace = {
 */
 let idpos = 0;
 let value = "";
-
-
+let day__forfunction;
+let element__forfunction;
 
 window.addEventListener("click", clicks);
 
@@ -31,20 +32,22 @@ window.addEventListener("click", clicks);
 function clicks() {
       let muzuNapsat = true;
     if (event.srcElement.className === "pole") {
-      value = textinput.value;
+      zobrazenitext(event);
       for (const [key, value] of Object.entries(informace)) {
       const pos = event.srcElement.getAttribute("pos");
         if ("a" + parseInt(iMonth.value)+"a" + parseInt(pos) + "a" + parseInt(iYear.value) === key) {
           if (value.year === iYear.value && value.month === parseInt(iMonth.value)) {
-            muzuNapsat = false;
+            muzuNapsat = true;
             console.log(informace);
             console.log("precist zpravu ju", value.text);
+            window.removeEventListener("keypress", key)
           }
 
         }
       }
       if (muzuNapsat) {
         const day = event.srcElement.getAttribute("pos");
+        day__forfunction = day;
         const text = value;
             const element = document.getElementsByClassName("pole") ;
             for (let i= 0; i< element.length; i ++) {
@@ -52,11 +55,36 @@ function clicks() {
                 idpos = i+1;
               }
             }
-
-          add(day, text);
+            element__forfunction = event.srcElement;
+          window.addEventListener("keypress", key)
       }
     }
 }
-function add(day, text) {
+function add(day, text, thiselement) {
       informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = {month:parseInt(iMonth.value), year:iYear.value, day:day, text:text};
+      thiselement.innerText = thiselement.innerText + "            " +  text;
+}
+function zobrazenitext(event) {
+  //console.log(event.srcElement.getAttribute("pos"));
+  textinput.style.display = "block";
+  let cislo = event.srcElement.getAttribute("pos");
+  const height = window.innerHeight;
+  const width = window.innerWidth;
+  const deleniY = Math.ceil(cislo / 6);
+  //console.log(deleniY);
+  console.log(deleniY);
+  const deleni = Math.floor(cislo/6);
+  const dilecekY = Math.floor(height / 8);
+  cislo = cislo-6*deleni;
+
+  if (cislo === 0) {
+    cislo = 6;
+  }
+
+  const dilecek = width / 8;
+  const positionY = Math.floor(dilecekY * deleniY + dilecekY);
+  const positionX = Math.floor(dilecek * cislo + dilecek);
+  console.log(positionY);
+  textinput.style.top = positionY - 140 + "px";
+  textinput.style.left = positionX-120-164 + "px";
 }
