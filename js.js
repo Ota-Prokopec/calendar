@@ -2,6 +2,8 @@
 const days = ["monday", "tuesday", "wensday", "thursday", "friday", "saturday", "sunday"];
 const pocetDnuVMesici = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const date = new Date();
+const iYear = document.getElementById("year");
+const iMonth = document.getElementById("month");
 const array = document.getElementById("center");
 
 document.getElementById("month").value = new Date().getMonth() + 1;
@@ -25,7 +27,8 @@ function doCalendar(day, month) {
       if (dataInformace !== false) {
          element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}    ${dataInformace}`);
       }
-       else if (i === date.getDate()) {
+
+       else if (i === date.getDate() && iMonth.value == date.getMonth()+1 && iYear.value == date.getFullYear()) {
          element = Ota.createElementByTagName("div", {class:"pole", background:"lightblue"}, `${days[day]}    ${i}    `);
        }
       else {

@@ -40,7 +40,7 @@ function clicks() {
             muzuNapsat = true;
             console.log(informace);
             console.log("precist zpravu ju", value.text);
-            window.removeEventListener("keypress", key)
+            //window.removeEventListener("keypress", key)
           }
 
         }
@@ -62,11 +62,11 @@ function clicks() {
 }
 function add(day, text, thiselement) {
       informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = {month:parseInt(iMonth.value), year:iYear.value, day:day, text:text};
-      thiselement.innerText = thiselement.innerText + "            " +  text;
+      //thiselement.innerText = thiselement.innerText + "            " +  text;
 }
 function zobrazenitext(event) {
   //console.log(event.srcElement.getAttribute("pos"));
-  textinput.style.display = "block";
+  document.getElementById("inputposition").style.display = "block";
   let cislo = event.srcElement.getAttribute("pos");
   const height = window.innerHeight;
   const width = window.innerWidth;
@@ -85,6 +85,6 @@ function zobrazenitext(event) {
   const positionY = Math.floor(dilecekY * deleniY + dilecekY);
   const positionX = Math.floor(dilecek * cislo + dilecek);
   console.log(positionY);
-  textinput.style.top = positionY - 140 + "px";
-  textinput.style.left = positionX-120-164 + "px";
+  document.getElementById("inputposition").style.top = positionY - dilecekY*2  + "px";
+  document.getElementById("inputposition").style.left = positionX - dilecek*4 + "px";
 }

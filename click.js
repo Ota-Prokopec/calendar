@@ -1,8 +1,7 @@
 
 
 
-const iYear = document.getElementById("year");
-const iMonth = document.getElementById("month");
+
 function sub() {
   let month = iMonth.value;
   //console.log(month, iYear.value);

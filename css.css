@@ -29,6 +29,19 @@ body {
   width: 75vw;
   background: #fff;
 }
+.arrow {
+  background: url("http://www.clker.com/cliparts/x/a/k/s/f/V/arrow-light-blue-hi.png");
+  background-size: 44px;
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  left:75px;
+  transform: rotate(90deg)
+}
+.inputposition {
+  position: absolute;
+  display: none;
+}
 div.pole {
   height: calc(61.4vh / 5 - 4px);
   width:calc(61.4vw / 5 - 4px);
@@ -43,17 +56,10 @@ div.pole:active {
 }
 input {
   height: 14px;
+  width: 200px;
 }
 #input {
-  display: none;
   position: absolute;
-}
-.textarea {
-
-    resize: inherit;
-    background: red;
-    border: none;
-
 }
 .pravo {
   height: 44px;

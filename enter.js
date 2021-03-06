@@ -8,3 +8,10 @@ function key() {
 
   }
 }
+window.addEventListener("click", function (event) {
+  if (event.srcElement.id === "array") {
+    window.removeEventListener("keypress", key);
+    document.getElementById("inputposition").style.display = "none";
+  }
+
+})
