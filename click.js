@@ -4,7 +4,7 @@
 
 function sub() {
   let month = iMonth.value;
-  //console.log(month, iYear.value);
+  ////console.log(month, iYear.value);
   doCalendar(firstDay(iMonth.value-1, iYear.value), daysInMonth(iYear.value, iMonth.value));
 }
 
@@ -13,7 +13,7 @@ function sub() {
 
 
 function daysInMonth(year, month) {
-  console.log(new Date(year, month, 0).getDate());
+  //console.log(new Date(year, month, 0).getDate());
   return new Date(year, month, 0).getDate();
 }
 
@@ -30,7 +30,7 @@ function daysInMonth(year, month) {
 
 window.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-      sub();
+      //sub();
   }
 });
 ////////***********//////////////*/*///////

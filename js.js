@@ -1,13 +1,13 @@
 
 const days = ["monday", "tuesday", "wensday", "thursday", "friday", "saturday", "sunday"];
 const pocetDnuVMesici = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const date = new Date();
+let date = new Date();
 const iYear = document.getElementById("year");
 const iMonth = document.getElementById("month");
 const array = document.getElementById("center");
 
-document.getElementById("month").value = new Date().getMonth() + 1;
-
+document.getElementById("month").value = date.getMonth() + 1;
+iYear.value = date.getFullYear();
 function doCalendar(day, month) {
 
          remove();
@@ -25,14 +25,14 @@ function doCalendar(day, month) {
       }
       let element;
       if (dataInformace !== false) {
-  /*1*/       element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}`, Ota.createElementByTagName("div", {position:"relative"},`${dataInformace.text}           ${dataInformace.time}` )              );
+  /*1*/       element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}`, Ota.createElementByTagName("div", {position:"relative"},`${dataInformace[0].text}           ${dataInformace[0].time}` )              );
       }
 
        else if (i === date.getDate() && iMonth.value == date.getMonth()+1 && iYear.value == date.getFullYear()) {
-  /*2*/       element = Ota.createElementByTagName("div", {class:"pole", background:"lightblue"}, `${days[day]}    ${i}    `);
+  /*2*/       element = Ota.createElementByTagName("div", {class:"pole", background:"lightblue"}, `${days[day]}    ${i}    `, Ota.createElementByTagName("div", {positon:"relative"}, ``));
        }
       else {
-  /*3 */      element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i }`);
+  /*3 */      element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i }`, Ota.createElementByTagName("div", {positon:"relative"}, ``));
       }
       element.setAttribute("pos", i);
       appendElement(array, element);
@@ -56,12 +56,12 @@ function remove() {
 
 
 function firstDay(mesic, rok) {
-  //console.log(rok, mesic);
+  ////console.log(rok, mesic);
   let firstDay = new Date(parseInt(rok), mesic, 1).getDay()-1;
   if (firstDay < 0) {
     firstDay = 6;
   }
-  //console.log(firstDay);
-  //console.log(firstDay);
+  ////console.log(firstDay);
+  ////console.log(firstDay);
     return firstDay;
 }

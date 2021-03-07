@@ -24,7 +24,6 @@ let idpos = 0;
 let value = "";
 let day__forfunction;
 let element__forfunction;
-
 window.addEventListener("click", clicks);
 
 
@@ -39,8 +38,8 @@ function clicks() {
         if ("a" + parseInt(iMonth.value)+"a" + parseInt(pos) + "a" + parseInt(iYear.value) === key) {
           if (value.year === iYear.value && value.month === parseInt(iMonth.value)) {
             muzuNapsat = true;
-            console.log(informace);
-            console.log("precist zpravu ju", value.text);
+            //console.log(informace);
+            //console.log("precist zpravu ju", value.text);
             //window.removeEventListener("keypress", key)
           }
 
@@ -62,18 +61,39 @@ function clicks() {
     }
 }
 function add(day, text, thiselement) {
-      informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = {month:parseInt(iMonth.value), year:iYear.value, day:day, text:text, time:timeinput.value};
-      thiselement.innerText = thiselement.innerText + timeinput.value +"            " +  text;
+    udelat = true;
+    let pos = 0;
+  for (const [key, value] of Object.entries(informace))  {
+    //console.log(key, "a" + parseInt(iMonth.value) + "a" + idpos  + "a" + parseInt(iYear.value)    );
+    if (key === "a" + parseInt(iMonth.value) + "a" + idpos  + "a" + parseInt(iYear.value)  /*informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)]*/) {
+          udelat = false;
+          pos ++;
+          informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)].push({text:text, time:timeinput.value});
+
+          //console.log(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"] );
+          thiselement.childNodes[1].innerText = informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"]    ;
+    }
+  }
+
+
+
+      if (udelat) {
+        informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = [{ text:text, time:timeinput.value}];
+        //console.log(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"] );
+        thiselement.childNodes[1].innerText = informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"]    ;
+      }
+
+
 }
 function zobrazenitext(event) {
-  //console.log(event.srcElement.getAttribute("pos"));
+  ////console.log(event.srcElement.getAttribute("pos"));
   document.getElementById("inputposition").style.display = "block";
   let cislo = event.srcElement.getAttribute("pos");
   const height = window.innerHeight;
   const width = window.innerWidth;
   const deleniY = Math.ceil(cislo / 6);
+  ////console.log(deleniY);
   //console.log(deleniY);
-  console.log(deleniY);
   const deleni = Math.floor(cislo/6);
   const dilecekY = Math.floor(height / 8);
   cislo = cislo-6*deleni;
@@ -85,7 +105,7 @@ function zobrazenitext(event) {
   const dilecek = width / 8;
   const positionY = Math.floor(dilecekY * deleniY + dilecekY);
   const positionX = Math.floor(dilecek * cislo + dilecek);
-  console.log(positionY);
+  //console.log(positionY);
   document.getElementById("inputposition").style.top = positionY - dilecekY*2  + "px";
   document.getElementById("inputposition").style.left = positionX - dilecek*4 + "px";
 }
