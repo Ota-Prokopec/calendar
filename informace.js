@@ -38,8 +38,8 @@ function clicks() {
         if ("a" + parseInt(iMonth.value)+"a" + parseInt(pos) + "a" + parseInt(iYear.value) === key) {
           if (value.year === iYear.value && value.month === parseInt(iMonth.value)) {
             muzuNapsat = true;
-            //console.log(informace);
-            //console.log("precist zpravu ju", value.text);
+            ////console.log(informace);
+            ////console.log("precist zpravu ju", value.text);
             //window.removeEventListener("keypress", key)
           }
 
@@ -52,7 +52,7 @@ function clicks() {
             const element = document.getElementsByClassName("pole") ;
             for (let i= 0; i< element.length; i ++) {
               if (element[i] === event.srcElement) {
-                idpos = i+1;
+                idpos = event.srcElement.getAttribute("pos");
               }
             }
             element__forfunction = event.srcElement;
@@ -64,48 +64,46 @@ function add(day, text, thiselement) {
     udelat = true;
     let pos = 0;
   for (const [key, value] of Object.entries(informace))  {
-    //console.log(key, "a" + parseInt(iMonth.value) + "a" + idpos  + "a" + parseInt(iYear.value)    );
+    ////console.log(key, "a" + parseInt(iMonth.value) + "a" + idpos  + "a" + parseInt(iYear.value)    );
     if (key === "a" + parseInt(iMonth.value) + "a" + idpos  + "a" + parseInt(iYear.value)  /*informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)]*/) {
           udelat = false;
           pos ++;
           informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)].push({text:text, time:timeinput.value});
 
-          //console.log(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"] );
+          ////console.log(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"] );
+          /*write*/
           thiselement.childNodes[1].innerText = informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"]    ;
     }
   }
 
 
-
+                   /*new array*/
       if (udelat) {
         informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)] = [{ text:text, time:timeinput.value}];
-        //console.log(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"] );
+        ////console.log(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"] );
         thiselement.childNodes[1].innerText = informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][0]["text"]    ;
       }
 
 
 }
 function zobrazenitext(event) {
-  ////console.log(event.srcElement.getAttribute("pos"));
   document.getElementById("inputposition").style.display = "block";
-  let cislo = event.srcElement.getAttribute("pos");
-  const height = window.innerHeight;
-  const width = window.innerWidth;
-  const deleniY = Math.ceil(cislo / 6);
-  ////console.log(deleniY);
-  //console.log(deleniY);
-  const deleni = Math.floor(cislo/6);
-  const dilecekY = Math.floor(height / 8);
-  cislo = cislo-6*deleni;
+  let cislo = event.srcElement.getAttribute("postion");
 
-  if (cislo === 0) {
-    cislo = 6;
+
+  const deleni = Math.ceil(cislo/7);
+  let deleniX = cislo;
+  for (let pos = 0; pos < 6; pos ++) {
+    if (deleniX > 7) {
+      deleniX = deleniX - 7;
+    }
   }
 
-  const dilecek = width / 8;
-  const positionY = Math.floor(dilecekY * deleniY + dilecekY);
-  const positionX = Math.floor(dilecek * cislo + dilecek);
-  //console.log(positionY);
-  document.getElementById("inputposition").style.top = positionY - dilecekY*2  + "px";
-  document.getElementById("inputposition").style.left = positionX - dilecek*4 + "px";
+  const dilekY = window.innerHeight/8;
+                  const positionY = deleni * dilekY - dilekY+14;
+                  const dilekX = window.innerWidth/8;
+                  const positionX = deleni * dilekX - dilekX/2;
+  document.getElementById("inputposition").style.top = positionY  + "px";
+  document.getElementById("inputposition").style.left = deleniX*dilekX - dilekX*3  + "px";
+
 }

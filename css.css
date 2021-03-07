@@ -24,13 +24,15 @@ body {
 }
 .center {
   display: ;
-  height: 75vh;
+  height: 80vh;
   display: inline-block;
-  width: 75vw;
-  background: #fff;
+  width: 90vw;
+  background: none;
 }
 .arrow {
-  background: url("http://www.clker.com/cliparts/x/a/k/s/f/V/arrow-light-blue-hi.png");
+  background: url(sipka.png);
+  background-repeat: no-repeat;
+  transform:rotate(180deg);
   background-size: 44px;
   height: 44px;
   width: 44px;
@@ -57,14 +59,18 @@ body {
   display: none;
 }
 div.pole {
-  position: relative;
+
+
+
+
+  border-radius: 14%;
+  border: 1px solid lightgreen;
   height: calc(61.4vh / 5 - 4px);
   width:calc(61.4vw / 5 - 4px);
   margin: 1px;
   padding: 1px;
   overflow: auto;
-  /*overflow-y: auto;*/
-  display: inline-grid;
+  display: inline-block;
   background: red;
 }
 div.pole:active {
@@ -80,7 +86,7 @@ input {
 .pravo {
   height: 44px;
   width: 44px;
-  background: url("https://www.stanthonyshs.org/wp-content/uploads/2018/08/Down-Arrow-PNG-Photos.png");
+  background: url(sipkastrana.png);
 
   top:calc(50vh - 22px);
   position: absolute;
@@ -97,7 +103,7 @@ input {
 .levo {
   height: 44px;
   width: 44px;
-  background: url("https://www.stanthonyshs.org/wp-content/uploads/2018/08/Down-Arrow-PNG-Photos.png");
+  background: url(sipkastrana.png);
 
   top:calc(50vh - 22px);
   position: absolute;
