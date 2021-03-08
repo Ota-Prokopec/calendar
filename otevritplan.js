@@ -38,7 +38,7 @@ function vytvoritotevritplan(value) {
   planelement.style.display = "block";
   array.style.display = "none";
   const background = "red";
-        const elementforopen = Ota.createElementByTagName("div", {background:background, height:"64px", width:"64px", position:"absolute", left:window.innerWidth/2-64+"px", top:window.innerHeight/8+"px", },`${element__forfunction.childNodes[0].innerText}` );
+        const elementforopen = Ota.createElementByTagName("div", {background:background, class:"pole", position:"absolute", left:window.innerWidth/2-64+"px", top:window.innerHeight/8+"px", },`${event.srcElement.innerText}` );
         appendElement(otevritplan, elementforopen);
         //ap
            /*appending*/
@@ -60,6 +60,7 @@ function vytvoritotevritplan(value) {
 
     planelement.style.display = "none";
     array.style.display = "block";
+    vymazani(event);
   })
 }
 
