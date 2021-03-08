@@ -1,7 +1,7 @@
 
 
 
-setInterval(merenicas, 34000);
+setInterval(merenicas, 144);
 function merenicas() {
   date = new Date();
   const hour = date.getHours();

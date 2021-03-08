@@ -12,6 +12,14 @@ body {
    -khtml-user-select: none;
     user-select:none;
 }
+.delete {
+  background: url(delete.png);
+  background-repeat: no-repeat;
+  background-size: 18.44px;
+  display:inline-flex;
+  height: 18.44px;
+  width: 18.44px;
+}
 .array {
   position: absolute;
   height: 100vh;

@@ -18,7 +18,7 @@ window.addEventListener("contextmenu", function (event) {
                          //console.log("je a jdu projizdet");
                          let el = [];
                         for (let pos = 0; pos < delka; pos ++) {
-                              el.push(Ota.createElementByTagName("li", {}, `${value[pos]["text"]} ${value[pos]["time"]}`));
+                              el.push(Ota.createElementByTagName("li", {pos:element__forfunction.getAttribute("pos")}, `${value[pos]["text"]} ${value[pos]["time"]}`));
                               //console.log(el);
                                  //console.log(value[pos]["text"], value[pos]["time"]);
 
@@ -40,17 +40,47 @@ function vytvoritotevritplan(value) {
   const background = "red";
         const elementforopen = Ota.createElementByTagName("div", {background:background, height:"64px", width:"64px", position:"absolute", left:window.innerWidth/2-64+"px", top:window.innerHeight/8+"px", },`${element__forfunction.childNodes[0].innerText}` );
         appendElement(otevritplan, elementforopen);
-        //console.log(value, value.length);
+        //ap
+           /*appending*/
   for (let pos = 0; pos < value.length; pos ++ ) {
+            appendElement(value[pos], /*do delete element*/Ota.createElementByTagName("div", {class:"delete"}));
             appendElement(otevritplan, value[pos]);
+            appendclickfordelete(pos);
   }
   elementforopen.addEventListener("click", function () {
     const remove = otevritplan.childNodes;
-    for (let pos = 0; pos < remove.length; pos ++) {
-      remove[pos].remove();
+    //vybírání
+    for (let i = 0; i < 4; i ++) {
+      for (let pos = 0; pos < remove.length; pos ++) {
+        remove[pos].remove();
+      }
     }
+   //remove
     elementforopen.remove();
+
     planelement.style.display = "none";
     array.style.display = "block";
   })
 }
+
+
+function removeItem(arr, index) {
+
+  arr.splice(index, 1);
+  return arr;
+
+}
+
+          function appendclickfordelete(pos) {
+             const element = document.getElementsByClassName("delete");
+             for (let pos = 0; pos < element.length; pos++) {
+                           element[pos].addEventListener("click", (event) => {
+                             element[pos].parentNode.remove();
+                                 //get pos element
+                             const idops = element[pos].getAttribute("pos");
+                             //remove informace
+
+                             removeItem(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)], pos);
+                           })
+             }
+          }

@@ -104,6 +104,6 @@ function zobrazenitext(event) {
                   const dilekX = window.innerWidth/8;
                   const positionX = deleni * dilekX - dilekX/2;
   document.getElementById("inputposition").style.top = positionY  + "px";
-  document.getElementById("inputposition").style.left = deleniX*dilekX - dilekX*3  + "px";
+  document.getElementById("inputposition").style.left = deleniX*dilekX - dilekX*3.5  + "px";
 
 }
