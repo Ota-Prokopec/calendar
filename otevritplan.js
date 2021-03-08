@@ -77,9 +77,9 @@ function removeItem(arr, index) {
                            element[pos].addEventListener("click", (event) => {
                              element[pos].parentNode.remove();
                                  //get pos element
-                             const idops = element[pos].getAttribute("pos");
+                             const idops = element__forfunction.getAttribute("pos");
                              //remove informace
-
+                            //informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)][pos].text = "";
                              removeItem(informace["a" + parseInt(iMonth.value)+"a"+idpos + "a" + parseInt(iYear.value)], pos);
                            })
              }

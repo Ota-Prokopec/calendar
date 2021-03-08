@@ -46,8 +46,10 @@ let position = 0;
 
 
       if (dataInformace !== false) {
-
+                                                        dataInformace.push({text:"", time:""});
+                                            console.log(dataInformace[0]["text"]);
   /*1*/       element = Ota.createElementByTagName("div", {class:"pole"}, `${days[day]}    ${i}`, Ota.createElementByTagName("div", {position:"relative"},`${dataInformace[0].text}           ${dataInformace[0].time}` )              );
+
 
       }
 
